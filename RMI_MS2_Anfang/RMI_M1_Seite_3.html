@@ -104,24 +104,29 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col col-md-4">
+                <div class="col col-md-8">
                     <input id="sendeKnopf" type="submit" value="Senden" class="btn btn-primary">
+                </div>
+                <div class="col col-md-4">
+                    <input onclick="wipeLocalStorage();" type="submit" value="StorageWipe" class="btn btn-danger">
                 </div>
             </div>
         </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="js/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     
-    <script>        
+    <script>
         $(document).ready(
             function() {
+                fillLocalStorage();
+                readLocalStorage();
                 $("#sendeKnopf").click(
                     function() {
-                        //var daten1_nicht_verwendet = document.getElementById("input1").value; //normales javascript
+                        //var daten1_nicht_verwendet = document.getElementById("input1").value; //"normales" javascript
                         var daten1 = $('#input1').val(); //jquery schreibweise
                         var daten2 = $('#input2').val();
                         var daten3 = $('#input3').val();
@@ -149,18 +154,31 @@
         }
         
         function fillLocalStorage() {
-            $.getJSON(
-                "Listendaten.json",
-                function(data) {
+            if(window.localStorage.getItem("filmTabelle") == null) {
+                jQuery.getJSON(
+                    "Listendaten.json",
+                    function(data) {
                     window.localStorage.setItem("filmTabelle", JSON.stringify(data));
-                }
-            );
+                    }
+                );
+            }
+            else {
+                $("#kontrolle").append("<p>Bullshit</p>")
+            }
         }
         
         function readLocalStorage() {
             var filmArray = JSON.parse(window.localStorage.getItem("filmTabelle"));
             for(let i=0; i<filmArray.length;i++) {
                 //mach was mit filmArray[i]
+                var delButton = '<td><input onclick="deleteReihe(this);" type="submit" value="Delete" class="btn btn-danger"></td>';
+                let hilfe = "<td>" + filmArray[i].ident + "</td>";
+                hilfe += "<td>" + filmArray[i].filmTitel + "</td>";
+                hilfe += "<td>" + filmArray[i].eJahr + "</td>";
+                hilfe += "<td>" + filmArray[i].genre + "</td>";
+                hilfe += "<td>" + filmArray[i].studio + "</td>";
+                hilfe += "<td>" + filmArray[i].bspActor + "</td>";
+                $("#kopierZiel").append("<tr>" + hilfe + delButton + "</tr>");
             }
         }
         
@@ -168,6 +186,7 @@
             window.localStorage.removeItem("filmTabelle");
             //oder auch: window.localStorage.clear(); //unterschiede nochmal genau nachlesen!
             //TODO: Seite neu laden
+            location.reload();
         }
         
         //TODO: pruefen, ob daten im local storage vorhanden sind, falls ja->lesen und in tabelle einfuegen, sonst einspeichern. wipe-Knopf einbauen
