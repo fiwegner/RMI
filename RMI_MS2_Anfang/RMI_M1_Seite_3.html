@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/darkly/bootstrap.min.css" rel="stylesheet" integrity="sha384-w+yWASP3zYNxxvwoQBD5fUSc1tctKq4KUiZzxgkBSJACiUp+IbweVKvsEhMI+gz7" crossorigin="anonymous">
+    <link rel="stylesheet" href="./individuelle_Aenderungen.css">
+
+    <title>Liste</title>
+  </head>
+
+   <body>
+      
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#"><img src="film-xxl.png" alt="Brand" />Filmkritiken</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor03">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./RMI_Meilenstein_1.html">Reviews</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./RMI_M1_Seite_2.html">Poster</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="./RMI_M1_Seite_3.html">Liste</a>
+          </li>
+        </ul>
+        <!-- Suchleiste
+        <form class="form-inline mt-2 mt-md-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        -->
+      </div>
+    </nav>
+      
+    <div class="custom-size">
+        <div class="container-fluid">
+            <div class="row test">
+                <div class="col col-md-12">
+                    <h1>Eine Liste</h1><br>
+                    <div id="kontrolle"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-xs-12 col-md-12">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Titel</th>
+                                <th scope="col">Erscheinungsjahr</th>
+                                <th scope="col">Ein Genre</th>
+                                <th scope="col">Studio</th>
+                                <th scope="col">Beispielschauspieler</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="kopierZiel">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-md-4">
+                    <div class="form-group">
+                        <label class="col-form-label">ID</label>
+                        <input class="form-control" id="input1" type="text" placeholder="ID">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Ein Genre</label>
+                        <input class="form-control" id="input2" type="text" placeholder="Genre">
+                    </div>
+                </div>
+                <div class="col col-md-4">
+                    <div class="form-group">
+                            <label class="col-form-label">Titel</label>
+                            <input class="form-control" id="input3" type="text" placeholder="Titel">
+                        </div>
+                    <div class="form-group"> 
+                        <label class="col-form-label">Studio</label>
+                        <input class="form-control" id="input4" type="text" placeholder="Studio">
+                    </div>
+                </div>
+                <div class="col col-md-4">
+                    <div class="form-group">
+                        <label class="col-form-label">Erscheinungsjahr</label>
+                        <input class="form-control" id="input5" type="text" placeholder="Erscheinungsjahr">
+                    </div>
+                    <div class="form-group"> 
+                        <label class="col-form-label">Beispielschauspieler</label>
+                        <input class="form-control" id="input6" type="text" placeholder="Beispielschauspieler">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-md-4">
+                    <input id="sendeKnopf" type="submit" value="Senden" class="btn btn-primary">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+    <script>        
+        $(document).ready(
+            function() {
+                $("#sendeKnopf").click(
+                    function() {
+                        var daten1_nicht_verwendet = document.getElementById("input1").value; //normales javascript
+                        var daten1 = $('#input1').val(); //jquery schreibweise
+                        var daten2 = $('#input2').val();
+                        var daten3 = $('#input3').val();
+                        var daten4 = $('#input4').val();
+                        var daten5 = $('#input5').val();
+                        var daten6 = $('#input6').val();
+                        var hilfe1 = "<td>" + daten1 + "</td>";
+                        var hilfe2 = "<td>" + daten2 + "</td>";
+                        var hilfe3 = "<td>" + daten3 + "</td>";
+                        var hilfe4 = "<td>" + daten4 + "</td>";
+                        var hilfe5 = "<td>" + daten5 + "</td>";
+                        var hilfe6 = "<td>" + daten6 + "</td>";
+                        var delButton = '<td><input onclick="deleteReihe(this);" type="submit" value="Delete" class="btn btn-danger"></td>';
+                        $("#kopierZiel").append("<tr>" + hilfe1 + hilfe2 + hilfe3 + hilfe4 + hilfe5 + hilfe6 + delButton + "</tr>");
+                    }
+                );
+            }
+        );
+
+        function deleteReihe(delKn) {
+          if (confirm('Wirklich löschen?'))
+          {
+            $(delKn).parent().parent().remove();
+          }
+        }
+        
+        function fillLocalStorage() {
+            $.getJSON(
+                "Listendaten.json",
+                function(data) {
+                    window.localStorage.setItem("filmTabelle", JSON.stringify(data));
+                }
+            );
+        }
+        
+        function readLocalStorage() {
+            var filmArray = JSON.parse(window.localStorage.getItem("filmTabelle"));
+            for(let i=0; i<filmArray.length;i++) {
+                //mach was mit filmArray[i]
+            }
+        }
+        
+        function wipeLocalStorage() {
+            window.localStorage.removeItem("filmTabelle");
+            //oder fuer den gesamten local Storage des Nutzers
+            window.localStorage.clear();
+            //TODO: Seite neu laden
+        }
+        
+        //TODO: pruefen, ob daten im local storage vorhanden sind, falls ja->lesen und in tabelle einfuegen, sonst einspeichern. wipe-Knopf einbauen
+        
+    </script>
+      
+  </body>
+
+
+</html>

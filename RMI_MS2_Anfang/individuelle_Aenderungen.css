@@ -1,0 +1,27 @@
+.test {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.custom-size {
+    max-width: 80%;
+    margin: 10%;
+}
+
+.carousel-inner > carousel-item > img {
+    width: 100%;
+    margin: auto;
+}
+
+p {
+    text-align: justify;
+}
+
+h1 {
+    text-align: center;
+}
+
+.navbar-brand img {
+    max-height: 40px;
+    padding: 5px;
+}

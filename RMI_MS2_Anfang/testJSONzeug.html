@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0;" />
+    <link rel="stylesheet" media="screen" href="./Beispiel:SELFHTML-Beispiel-Grundlayout.css" />
+    <title>Test</title>
+</head>
+ 
+<body>
+    <p id="test"></p>
+    <output></output>
+    <button id="button" onclick="testStringify();">hier</button>
+    <script>
+        var myJSON = {
+            "einArray": [
+    {
+        "ident": 1,
+        "filmTitel": "Venom",
+        "eJahr": 2018,
+        "genre": "Action",
+        "studio": "Columbia Pictures",
+        "bspActor": "Tom Hardy"
+    },
+    {
+        "ident": 2,
+        "filmTitel": "Halloween",
+        "eJahr": 2018,
+        "genre": "Horror",
+        "studio": "Universal Pictures",
+        "bspActor": "Jamie Lee Curtis"
+    },
+    {
+        "ident": 3,
+        "filmTitel": "Creed",
+        "eJahr": 2015,
+        "genre": "Drama",
+        "studio": "Warner Bros.",
+        "bspActor": "Michael B. Jordan"
+    },
+    {
+        "ident": 4,
+        "filmTitel": "Zootopia",
+        "eJahr": 2016,
+        "genre": "Animation",
+        "studio": "Walt Disney Animation Studios",
+        "bspActor": "Ginnifer Goodwin"
+    },
+    {
+        "ident": 5,
+        "filmTitel": "12 Years a Slave",
+        "eJahr": 2013,
+        "genre": "Drama",
+        "studio": "Fox Searchlight",
+        "bspActor": "Chiwetel Ejiofor"
+    }
+]};
+        var derTestSring = JSON.stringify(myJSON);
+        function testStringify() {
+            document.getElementById("test").innerHTML = derTestString;
+            document.querySelector("output").innerText = derTestString;
+        } 
+        
+    </script>
+</body>
+</html>
+

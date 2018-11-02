@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="testausgabe">TODO write content</div>
+        <button id="testbutton" onclick="JSONParseTest();">parsen</button>
+        <button id="testbutton2" onclick="JSONStringifyTest();">stringify-en</button>
+        <script>
+            var myJSON = '{"name": "Peter", "alter": "75"}';
+            var myObject = {name: "Ulf", alter: 13};
+            function JSONParseTest() {
+                var geparsed = JSON.parse(myJSON);
+                document.getElementById("testausgabe").innerText = geparsed.name;
+            }
+            function JSONStringifyTest() {
+                var gestringifyed = JSON.stringify(myObject);
+                document.getElementById("testausgabe").innerText = gestringifyed;
+            }
+            //JSON dateien enden auf .json !!!!!!!!!!!!
+        </script>
+    </body>
+</html>
