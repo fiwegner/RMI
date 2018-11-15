@@ -1,0 +1,34 @@
+<div *ngIf="film">
+    <h2>{{film.filmTitel | uppercase}} Details & Bearbeitung</h2>
+    <div><span>Titel: </span>{{film.filmTitel}}</div>
+    <div><span>Erscheinungsjahr: </span>{{film.eJahr}}</div>
+    <div><span>Genre: </span>{{film.genre}}</div>
+    <div><span>Studio: </span>{{film.studio}}</div>
+    <div><span>Schauspieler: </span>{{film.bspActor}}</div>
+    <br>
+    <div>
+      <label>Titel:
+        <input [(ngModel)]="film.filmTitel" placeholder="Titel">
+      </label>
+    </div>
+    <div>
+      <label>Erscheinungsjahr:
+        <input [(ngModel)]="film.eJahr" placeholder="Jahr">
+      </label>
+    </div>
+    <div>
+      <label>Genre:
+        <input [(ngModel)]="film.genre" placeholder="Genre">
+      </label>
+    </div>
+    <div>
+      <label>Studio:
+        <input [(ngModel)]="film.studio" placeholder="Studio">
+      </label>
+    </div>
+    <div>
+      <label>Schauspieler:
+        <input [(ngModel)]="film.bspActor" placeholder="Schauspieler">
+      </label>
+    </div>
+</div>

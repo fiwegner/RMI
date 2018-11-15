@@ -1,0 +1,42 @@
+[
+    {
+        "ident": 1,
+        "filmTitel": "Venom",
+        "eJahr": 2018,
+        "genre": "Action",
+        "studio": "Columbia Pictures",
+        "bspActor": "Tom Hardy"
+    },
+    {
+        "ident": 2,
+        "filmTitel": "Halloween",
+        "eJahr": 2018,
+        "genre": "Horror",
+        "studio": "Universal Pictures",
+        "bspActor": "Jamie Lee Curtis"
+    },
+    {
+        "ident": 3,
+        "filmTitel": "Creed",
+        "eJahr": 2015,
+        "genre": "Drama",
+        "studio": "Warner Bros.",
+        "bspActor": "Michael B. Jordan"
+    },
+    {
+        "ident": 4,
+        "filmTitel": "Zootopia",
+        "eJahr": 2016,
+        "genre": "Animation",
+        "studio": "Walt Disney Animation Studios",
+        "bspActor": "Ginnifer Goodwin"
+    },
+    {
+        "ident": 5,
+        "filmTitel": "12 Years a Slave",
+        "eJahr": 2013,
+        "genre": "Drama",
+        "studio": "Fox Searchlight",
+        "bspActor": "Chiwetel Ejiofor"
+    }
+]

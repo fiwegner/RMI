@@ -1,0 +1,60 @@
+<h2>Filme und so</h2>
+<ul class="filme">
+  <li *ngFor="let film of filme; let i = index" [class.selected]="film === selectedFilm" (click)="onSelect(film)">
+    <span class="badge">{{i+1}}</span> {{film.filmTitel}}
+  </li>
+</ul>
+<br>
+<table class="filme">
+	<thead>
+            <tr>
+                <th>ID</th>
+                <th>Titel</th>
+                <th>Genre</th>
+                <th>Erscheinungsjahr</th>
+                <th>Studio</th>
+                <th>Schauspieler</th>
+            </tr>
+	</thead>
+	<tbody>
+            <tr *ngFor="let film of filme; let i = index" [class.selected]="film === selectedFilm" (click)="onSelect(film, i)">
+                <td>{{i+1}}</td>
+                <td>{{film.filmTitel}}</td>
+                <td>{{film.genre}}</td>
+                <td>{{film.eJahr}}</td>
+                <td>{{film.studio}}</td>
+                <td>{{film.bspActor}}</td>
+                <td><button class="btn btn-danger" (click)="delete(i)">Löschen</button>
+                <button class="btn btn-danger" (click)="edit(i)">Änderungen Speichern</button></tr>
+	</tbody>
+</table>
+<br>
+<h2>Neuen Film einfügen</h2>
+<div>
+      <label>Titel:
+        <input [(ngModel)]="tmpFilm.filmTitel" placeholder="Titel">
+      </label>
+    </div>
+    <div>
+      <label>Erscheinungsjahr:
+        <input [(ngModel)]="tmpFilm.eJahr" placeholder="Jahr">
+      </label>
+    </div>
+    <div>
+      <label>Genre:
+        <input [(ngModel)]="tmpFilm.genre" placeholder="Genre">
+      </label>
+    </div>
+    <div>
+      <label>Studio:
+        <input [(ngModel)]="tmpFilm.studio" placeholder="Studio">
+      </label>
+    </div>
+    <div>
+      <label>Schauspieler:
+        <input [(ngModel)]="tmpFilm.bspActor" placeholder="Schauspieler">
+      </label>
+    </div>
+<button class="btn btn-primary" (click)="add()">Add</button>
+<button class="btn btn-primary" (click)="wipe()">Reset Changes</button>
+<app-film-detail [film]="selectedFilm"></app-film-detail>
