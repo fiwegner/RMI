@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Welcome to Ionic!</h2>
+  <p>
+    This starter project comes with simple tabs-based layout for apps
+    that are going to primarily use a Tabbed UI.
+  </p>
+  <p>
+    Take a look at the <code>src/pages/</code> directory to add or change tabs,
+    update any existing page or create new pages.
+  </p>
+    
+    <ul>
+        <li *ngFor="let task of taskList">
+            {{task.bez}}
+            {{task.detail}}
+        </li>
+    </ul>
+    
+    <label>Bezeichnung:</label>
+    <input [(ngModel)] = newTask.bez>
+    <label>Nummer:</label>
+    <input [(ngModel)] = newTask.detail>
+    <button (click)="add()">Einfügen</button>
+    <button (click)="wipe()">Reset</button>
+</ion-content>
