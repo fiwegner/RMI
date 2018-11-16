@@ -40,8 +40,10 @@ export class FilmeComponent implements OnInit {
     }
 
     edit(i) {
-        this.filmService.edit(this.selectedFilm, i);
-        location.reload();
+        if(this.selectedFilm != null) {
+            this.filmService.edit(this.selectedFilm, i);
+            location.reload();
+        }
     }
 
     delete(i) {
